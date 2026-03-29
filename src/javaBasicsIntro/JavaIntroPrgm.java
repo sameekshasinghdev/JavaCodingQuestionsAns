@@ -39,19 +39,67 @@ public class JavaIntroPrgm {
 		
 //		6. Write an infinite loop using do while condition.
 //		7. Write a program to enter the numbers till the user wants and at the end it should display the count of positive, negative and zeros entered. 
-		findKindOfNum();
+		findKindOfNum(sc);
 		
 //		8. Two numbers are entered by the user, x and n. Write a function to find the value of one number raised to the power of another i.e. xn.
-//		9. Write a function that calculates the Greatest Common Divisor of 2 numbers. (BONUS)
+		
+		System.out.println("Enter your number to get its power: ");
+		int num=sc.nextInt();
+		
+		System.out.println("Enter power for your num: ");
+		int powNum=sc.nextInt();
+		power(num, powNum);
+		
+	//	9. Write a function that calculates the Greatest Common Divisor of 2 numbers. (BONUS)
+		System.out.print("Enter n1: ");
+		int n1 = sc.nextInt();
+		
+		System.out.print("Enter n2: ");
+	    int n2 = sc.nextInt();
+	    GCD(n1,n2);
 //		10. Write a program to print Fibonacci series of n terms where n is input by user :
 //		0 1 1 2 3 5 8 13 21 ..... 
 //		 In the Fibonacci series, a number is the sum of the previous 2 numbers that came before it.
 //		(BONUS)
+	    System.out.println("Enter Number For fib num: ");
+	    int n = sc.nextInt();
+	    fibonnacci(n);
+	    
 
 	}
 
-	private static void findKindOfNum() {
-		Scanner scanner = new Scanner(System.in);
+	private static void power(int num, int powNum) {
+		System.out.println(num + " raised to " + powNum + " is: " + Math.pow(num, powNum));
+		
+	}
+
+	private static void fibonnacci(int n) {
+		int a = 0, b = 1;
+	    System.out.print("Fibonacci series: ");
+	    for (int i = 1; i <= n; i++) {
+	        System.out.print(a + " ");
+	        int next = a + b;
+	        a = b;
+	        b = next;
+	    }
+	    System.out.println();
+
+	}
+
+	private static void GCD(int n1, int n2) {
+		// TODO Auto-generated method stub
+		while(n1 != n2) { 
+	           if(n1>n2) {
+	               n1 = n1 - n2;
+	           } else {
+	               n2 = n2 - n1;
+	           }
+		}
+		System.out.println("GCD is : "+n2);
+
+	}
+
+	private static void findKindOfNum(Scanner scanner) {
 
         int positiveCount = 0;
         int negativeCount = 0;
@@ -92,7 +140,7 @@ public class JavaIntroPrgm {
         System.out.println("Negative numbers: " + negativeCount);
         System.out.println("Zeros: " + zeroCount);
 
-        scanner.close();
+     //   scanner.close();
 		
 	}
 
