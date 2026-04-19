@@ -1,0 +1,4 @@
+	Think of it like a window (subarray/substring) moving over your data.
+	👉 Instead of checking every possible subarray (brute force)
+	👉 You reuse previous work and just slide the window
+	

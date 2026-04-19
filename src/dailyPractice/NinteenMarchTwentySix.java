@@ -134,7 +134,7 @@ public class NinteenMarchTwentySix {
 		
 		//using loop
 		char[] chr = new char[str.length()];
-		for(int i=str.length()-1; i>= 0; i--) {
+		for(int i=str.length(); i>= 0; i--) {
 			chr[str.length()-i-1]=str.charAt(i);
 		}
 		return new String(chr);

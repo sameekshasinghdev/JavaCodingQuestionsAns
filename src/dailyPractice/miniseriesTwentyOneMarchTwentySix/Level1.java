@@ -22,8 +22,8 @@ public class Level1 {
 //		2. Check Palindrome
 //		Input: "madam"
 //		Output: true
-		String str1= "madam";
-		System.out.println("2. Check Palindrome - 'madam' : "+isPalindrome(str1));
+		String str1= "N2 i&nJA?a& jnI2n";
+		System.out.println("2. Check Palindrome  "+isPalindrome(str1));
 		
 //		3. Find Missing Number in Array (1 to N)
 //		Input: [1,2,4,5]
@@ -43,6 +43,24 @@ public class Level1 {
 //		Output: [1,3,12,0,0]
 		int[] arr2 = {0,1,0,3,12};
 		System.out.println("5. Move Zeros to End : "+ Arrays.toString(moveZerosToEnd(arr2)));
+		//HOT : reverse senternce
+//			Sample Input :
+//			I am a star
+//			Sample Output:
+//			star a am I
+		String sent = "I am a star";
+		System.out.println("Reverse a senetence : "+revSentence(sent));
+	}
+
+	private static String revSentence(String sent) {
+		if(sent.isBlank()) return null;
+		String[] strArr = sent.split(" ");
+		String[] newStrArr = new String[strArr.length];
+		for(int i = 0; i<strArr.length;i++) {
+			newStrArr[i]=strArr[strArr.length-1-i];
+		}
+		String result = String.join(" ", newStrArr);
+		return result;
 	}
 
 	private static int[] moveZerosToEnd(int[] arr2) {
@@ -117,11 +135,13 @@ public class Level1 {
 	}
 
 	private static boolean isPalindrome(String str1) {
-		// TODO Auto-generated method stub
 		
-		if(str1.isBlank()) {return false;}
-		else if(str1.equals(reversedString(str1))) {return true;}
-		return false;
+		if(str1.isBlank()) return false;
+//		else if(str1.equals(reversedString(str1))) {return true;}
+//		return false;
+		String cleaned = str1.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+		
+		return cleaned.equals(reversedString(cleaned));
 	} 
 
 	private static String reversedString(String str) {
