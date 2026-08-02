@@ -24,7 +24,7 @@ public class TwentyTwoJulyTwentySix {
 		String s3 = "swiss";
 		System.out.println("First Non-Repeating Character : " + findFirstNonRepChar(s3));
 		String s4 = "banana";
-		System.out.println("Character Frequency using : " + findCharacterFrequency(s4));
+		System.out.println("Character Frequency using map: " + findCharacterFrequency(s4));
 		String a = "aabb", b = "abab";
 		System.out.println("Check Anagram: " + checkAnagram(a, b));
 		String s5 = "programming";
@@ -54,7 +54,52 @@ public class TwentyTwoJulyTwentySix {
 		List<Integer> list = Arrays.asList(10, 40, 20, 40, 30);
 		System.out.println("Find second-highest number : " + findSecondHigestNumber(list));
 
-		System.out.println("Character frequency" + findCharacterFrequencyUsingStream(s4));
+		System.out.println("Character frequency using stream" + findCharacterFrequencyUsingStream(s4));
+		
+		System.out.println("First Non-Repeating Character using stream : " + findFirstNonRepCharStream(s3));
+		
+		List<String> l1= Arrays.asList("Java", "SQL", "SpringBoot");
+		System.out.println("Sort strings by length : "+ sortStringByLength(l1));
+		System.out.println("Convert strings to uppercase : "+ toUpperCase(l1));
+		
+		List<Employee> employees = Arrays.asList(
+				new Employee(1,"Amit", "IT",20000,26),
+	            new Employee(2,"Neha", "HR",4000,22),
+	            new Employee(3,"Ravi", "IT",5000,24)
+	        );
+		System.out.println("Group employees by department : "+ groupEmployeeByDepartment(employees));
+	}
+
+	private static Map<String, List<Employee>> groupEmployeeByDepartment(List<Employee> employees) {
+		
+		Map<String, List<Employee>> groupId=employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+		return groupId;
+	}
+
+	private static List<String> toUpperCase(List<String> l1) {
+		return l1.stream().map(String::toUpperCase).toList();
+	}
+
+	private static List<String> sortStringByLength(List<String> l1) {
+		return l1.stream().sorted(Comparator.comparingInt(String::length)).collect(Collectors.toList());
+	}
+
+	private static Character findFirstNonRepCharStream(String s3) {
+		
+		 if (s3 == null || s3.isEmpty()) {
+		        throw new IllegalArgumentException("Input string cannot be null or empty");
+		    }
+		Character result = s3.chars().mapToObj(c->(char)c)
+		.collect(Collectors.groupingBy(
+				Function.identity(),LinkedHashMap::new,
+				Collectors.counting()))
+		.entrySet().stream()
+		.filter(entry->entry.getValue()==1)
+		.findFirst()
+		.map(Map.Entry::getKey)
+		.orElse(null);
+		
+		return result;
 	}
 
 	private static Map<Character, Long> findCharacterFrequencyUsingStream(String s4) {
