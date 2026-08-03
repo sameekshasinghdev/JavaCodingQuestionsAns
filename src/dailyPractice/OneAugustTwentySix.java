@@ -59,7 +59,7 @@ public class OneAugustTwentySix {
 		return employees.stream()
 				.sorted(Comparator.comparing(Employee::getAge)
 						.reversed()).findFirst()
-				.map(Employee::getName).orElse(null);
+				.map(Employee::getName).orElse("No Employee");
 	}
 
 
