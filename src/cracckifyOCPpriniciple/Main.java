@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String args[]) {
-		//this is OCP Principle
+		//this is OCP Principle = Open Closed Principle(SOLID)
 		//That is Open for extension but closed for modification
 		//Remember OCP= Add new behavior through extension.
 		//Related pattern = Strategy Design Pattern
