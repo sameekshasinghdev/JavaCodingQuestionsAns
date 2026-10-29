@@ -1,4 +1,4 @@
-package cracckifyOCPpriniciple;
+package cracckify.solidprinciples.ocp;
 
 import java.util.Scanner;
 
