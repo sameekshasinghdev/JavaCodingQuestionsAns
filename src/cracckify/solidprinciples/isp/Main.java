@@ -1,4 +1,4 @@
-package cracckifyISPprinciple;
+package cracckify.solidprinciples.isp;
 
 public class Main {
 

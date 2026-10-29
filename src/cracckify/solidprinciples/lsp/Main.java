@@ -1,4 +1,4 @@
-package cracckifyLSPprinciple;
+package cracckify.solidprinciples.lsp;
 
 public class Main {
 
