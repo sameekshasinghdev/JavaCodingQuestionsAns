@@ -4,7 +4,11 @@ package cracckify.designpattern.creationaldp.singleton;
 public class Main {
 
     public static void main(String[] args) {
-
+    	//singleton dp:It is creational design pattern that ensures,
+    	//only one instance of a class is created and provides a global access point to that instance
+    	
+    	//OR
+    	//This guarantees only one instance of an object throughout
         Logger logger1 = Logger.getInstance();
         Logger logger2 = Logger.getInstance();
 
