@@ -11,11 +11,13 @@ public class Main {
     	//This guarantees only one instance of an object throughout
         Logger logger1 = Logger.getInstance();
         Logger logger2 = Logger.getInstance();
+        logger1 = null;
+        logger2=null;
+        Logger logger3 = Logger.getInstance();
+        //logger2.log("Account created");
+        //logger3.log("Payment completed");
 
-        logger1.log("Account created");
-        logger2.log("Payment completed");
-
-        System.out.println(logger1 == logger2);
+        System.out.println(logger3 == Logger.getInstance());
     }
 }
 
